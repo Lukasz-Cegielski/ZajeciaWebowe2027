@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wizytówka</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="naglowek">
+        <img src="avatar.svg" alt="Avatar: inicjały JK na fioletowym tle" class="avatar">
+        <div class="naglowek-tekst">
+            <h1>Łukasz Cegielski</h1>
+            <p class="podtytul">Technik programista klasa 5</p>
+        </div>
+    </header>
+    <main>
+        <section id="Omnie">
+            <h2>O mnie</h2>
+            <p>Uczę się programowania aplikacji webowych Najbardziej interesuje mnie front-end, ale chcę też rozumieć też co dzieje się po stronie serwera</p>
+        </section>
+        <section id="umiejetnosci">
+            <h2>umiejetnosci</h2>
+            <ul class = 'lista-umiejetnosci'>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JAVASCRIPT</li>
+                <li>GIT</li>
+            </ul>
+        </section>
+        <section id="kontakt">
+            <h2>Kontakt</h2>
+            <form id="formularz" novalidate>
+                <div class="pole">
+                    <label for="imie">Imię i Nazwisko</label>
+                    <input type="text" name="imie" id="imie">
+                    <p class="blad" id="blad-imie"></p>
+                </div>
+                <div class="pole">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email">
+                    <p class="blad" id="blad-email"></p>
+                </div>
+
+                <div class="pole">
+                    <label for="temat">Temat</label>
+                    <select name="temat" id="temat">
+                            <option value="">Wybierz temat</option>
+                            <option value="wspolpraca">Propozycja współpracy</option>
+                            <option value="pytania">Pytanie o projekt</option>
+                            <option value="inne">Inne</option>
+                    </select>
+                    <p class="blad" id="blad-temat"></p>
+                </div>
+                <div class="pole">
+                    <label for="wiadomosc">Wiadomość</label>
+                    <textarea id="wiadomosc" name="wiadomosc" rows="5"></textarea>
+                    <p class="blad" id="blad-wiadomosc"></p>
+                </div>
+                <button type="submit" class="przycisk">Wyślij wiadomość</button>
+            </form>
+            <div class="podziekowanie" id="podziekowanie" hidden>
+                <h3>Dziękuje za wiadomość</h3>
+                <p id="podziekowanie-tresc"></p>
+            </div>
+        </section>
+    </main>
+    <footer class="stopka">
+        <p>
+            Łukasz Cegielski
+            <a href="">Github</a>
+            <a href="mailto:">Moj email</a>
+        </p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>
