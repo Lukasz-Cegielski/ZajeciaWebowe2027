@@ -1,0 +1,21 @@
+export default function Naglowek(){
+    return(
+        <header className="container py-4 py-lg-5">
+            <div className="row align-items-center g-3">
+                <div className="col-12 col-lg-8">
+                    <h1 className="mb-2">Galeria Zdjęć</h1>
+                    <p className="lead text-body-secondary mb-3">
+                        Zdjęcia z wypraw w góry, nad morze i po mieście.
+                        Wybierz kategorię, żeby zawięzić widok albo powiększ zdjecie, które ci się spodoba
+                    </p>
+                </div>
+                <div className="col-12 col-lg-4">
+                    <div className="d-flex flex-wrap gap-2 justify-content-lg-end">
+                        <button className="btn btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#panelFiltrow">Filtry</button>
+                        <button className="btn btn-primary"></button>
+                    </div>
+                </div>
+            </div>
+        </header>
+    )
+}
