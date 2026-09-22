@@ -5,6 +5,7 @@ import viteLogo from './assets/vite.svg'
 import './App.css'
 import Naglowek from './components/Naglowek'
 import Navbar from './components/navbar'
+import CategoryBar from './components/categoryBar'
 function App() {
  
 
@@ -12,7 +13,9 @@ function App() {
     <>
     <Navbar></Navbar>
     <Naglowek/>
-      
+    <main className='container'>
+      <CategoryBar/>
+    </main>
     </>
   )
 }
