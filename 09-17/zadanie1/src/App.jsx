@@ -6,6 +6,7 @@ import './App.css'
 import Naglowek from './components/Naglowek'
 import Navbar from './components/navbar'
 import CategoryBar from './components/categoryBar'
+import Gallery from './components/Gallery'
 function App() {
  
 
@@ -15,6 +16,7 @@ function App() {
     <Naglowek/>
     <main className='container'>
       <CategoryBar/>
+      <Gallery/>
     </main>
     </>
   )
