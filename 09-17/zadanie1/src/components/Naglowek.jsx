@@ -12,7 +12,7 @@ export default function Naglowek(){
                 <div className="col-12 col-lg-4">
                     <div className="d-flex flex-wrap gap-2 justify-content-lg-end">
                         <button className="btn btn-outline-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#panelFiltrow">Filtry</button>
-                        <button className="btn btn-primary"></button>
+                        <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target = "#dodajZdjecie">Dodaj zdjęcie</button>
                     </div>
                 </div>
             </div>
