@@ -9,6 +9,7 @@ import CategoryBar from './components/categoryBar'
 import Gallery from './components/Gallery'
 import Footer from './components/Footer'
 import AddPhotoModal from './components/AddPhotoModal'
+import FiltersOffcanvas from './components/FiltersOffCanvas'
 function App() {
  
 
@@ -22,6 +23,7 @@ function App() {
     </main>
     <Footer/>
     <AddPhotoModal/>
+    <FiltersOffcanvas/>
     </>
   )
 }
