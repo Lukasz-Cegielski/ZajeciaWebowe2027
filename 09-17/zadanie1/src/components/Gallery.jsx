@@ -1,5 +1,5 @@
 import photos from '../data/photos.json'
-import PhotoCard from './PhotoCardk.jsx'
+import PhotoCard from './PhotoCard'
 export default function Gallery(){
     return(
         <div className="row g-4" id="galeria">
