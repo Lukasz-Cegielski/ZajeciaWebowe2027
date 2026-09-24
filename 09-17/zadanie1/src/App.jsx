@@ -14,13 +14,20 @@ import FiltersOffcanvas from './components/FiltersOffCanvas'
 import photos from './data/photos.json'
 function App() {
   const [zdjecia,setZdjecia] = useState(photos)
+  const [aktywnaKategoria,setAktywnaKategoria] = useState('wszystkie')
+  const widoczne = aktywnaKategoria === 'wszystkie' ? zdjecia : zdjecia.filter(z => z.category === aktywnaKategoria)
    return (
     <>
     <Navbar></Navbar>
     <Naglowek/>
     <main className='container'>
-      <CategoryBar/>
-      <Gallery zdjecia = {zdjecia}/>
+      <CategoryBar aktywna = {aktywnaKategoria} onWybierz={setAktywnaKategoria}/>
+      {widoczne.length === 0 &&(
+        <div className="alert alert-warning">
+          Nie znaleziono zdjęc w tej kategorii.
+        </div>
+      )}
+      <Gallery zdjecia = {widoczne}/>
     </main>
     <Footer/>
     <AddPhotoModal/>
