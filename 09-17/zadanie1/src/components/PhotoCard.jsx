@@ -1,7 +1,7 @@
 const NAZWA_KATEGORII = { gory: 'Góry', morze: "Morze", miasto: 'Miasto' }
 const KOLOR_KATEGORII = { gory: 'success', morze: 'primary', miasto: 'dark' }
 
-export default function PhotoCard({id, title, description, category, image, alt }) {
+export default function PhotoCard({ id, title, description, category, image, alt,onUsun }) {
     return (
         <div className="card h-100 shadow-sm">
             <img src={image} alt={alt} className="card-img-top" />
@@ -11,12 +11,15 @@ export default function PhotoCard({id, title, description, category, image, alt 
                     <span className={`badge text-bg-${KOLOR_KATEGORII[category]}`}>{NAZWA_KATEGORII[category]}</span>
                 </p>
                 <p className="card-text text-body-secondary">{description}</p>
+                <div className="d-flex gap-2 mt-auto">
                 <button
                     type="button"
                     className="btn btn-outline-primary mt-auto"
                     data-bs-toggle="modal"
                     data-bs-target={`#zdjecie${id}`}
-                >Powiększ</button>             
+                >Powiększ</button>
+                <button type="button" className="btn btn-outline-danger" onClick={onUsun}>Usuń</button>
+                </div>
             </div>
         </div>
     )

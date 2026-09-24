@@ -16,6 +16,9 @@ function App() {
   const [zdjecia,setZdjecia] = useState(photos)
   const [aktywnaKategoria,setAktywnaKategoria] = useState('wszystkie')
   const widoczne = aktywnaKategoria === 'wszystkie' ? zdjecia : zdjecia.filter(z => z.category === aktywnaKategoria)
+  function usunZdjecie(id){
+    setZdjecia(zdjecia.filter(z => z.id !== id))
+  } 
    return (
     <>
     <Navbar></Navbar>
@@ -27,7 +30,7 @@ function App() {
           Nie znaleziono zdjęc w tej kategorii.
         </div>
       )}
-      <Gallery zdjecia = {widoczne}/>
+      <Gallery zdjecia = {widoczne} onUsun = {usunZdjecie}/>
     </main>
     <Footer/>
     <AddPhotoModal/>
