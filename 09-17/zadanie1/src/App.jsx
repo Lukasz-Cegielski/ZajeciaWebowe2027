@@ -8,6 +8,7 @@ import Navbar from './components/navbar'
 import CategoryBar from './components/categoryBar'
 import Gallery from './components/Gallery'
 import Footer from './components/Footer'
+import AddPhotoModal from './components/AddPhotoModal'
 function App() {
  
 
@@ -20,6 +21,7 @@ function App() {
       <Gallery/>
     </main>
     <Footer/>
+    <AddPhotoModal/>
     </>
   )
 }
