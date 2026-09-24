@@ -1,16 +1,15 @@
-import photos from '../data/photos.json'
 import { Fragment } from 'react'
 import PhotoCard from './PhotoCard'
 import PhotoModal from './PhotoModal'
-export default function Gallery() {
+export default function Gallery({zdjecia}) {
     return (
         <div className="row g-4" id="galeria">
-            {photos.map(photo => (
-                <Fragment key={photo.id}>
+            {zdjecia.map(zdjecie => (
+                <Fragment key={zdjecie.id}>
                     <div className="col-12 col-md-6 col-lg-4">
-                        <PhotoCard {...photo} />
+                        <PhotoCard {...zdjecie} />
                     </div>
-                    <PhotoModal {...photo} />
+                    <PhotoModal {...zdjecie} />
                 </Fragment>
             ))}
         </div>
