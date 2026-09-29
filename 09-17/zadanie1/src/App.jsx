@@ -23,6 +23,11 @@ function App() {
     const noweID = Math.max(...zdjecia.map(z => z.id)) + 1
     setZdjecia([...zdjecia, { ...nowe, id: noweID, favorite: false }])
   }
+  function przelaczUlubione(id){
+    setZdjecia(
+      zdjecia.map(z => (z.id === id ? {...z,favorite:!z.favorite} : z))
+    )
+  }
   return (
     <>
       <Navbar></Navbar>
@@ -37,7 +42,7 @@ function App() {
             Nie znaleziono zdjęc w tej kategorii.
           </div>
         )}
-        <Gallery zdjecia={widoczne} onUsun={usunZdjecie} />
+        <Gallery zdjecia={widoczne} onUsun={usunZdjecie} onPrzelacz={przelaczUlubione} />
       </main>
       <Footer />
       <AddPhotoModal onDodaj={dodajZdjecie} />
