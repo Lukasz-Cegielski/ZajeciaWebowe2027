@@ -13,32 +13,35 @@ import AddPhotoModal from './components/AddPhotoModal'
 import FiltersOffcanvas from './components/FiltersOffCanvas'
 import photos from './data/photos.json'
 function App() {
-  const [zdjecia,setZdjecia] = useState(photos)
-  const [aktywnaKategoria,setAktywnaKategoria] = useState('wszystkie')
+  const [zdjecia, setZdjecia] = useState(photos)
+  const [aktywnaKategoria, setAktywnaKategoria] = useState('wszystkie')
   const widoczne = aktywnaKategoria === 'wszystkie' ? zdjecia : zdjecia.filter(z => z.category === aktywnaKategoria)
-  function usunZdjecie(id){
+  function usunZdjecie(id) {
     setZdjecia(zdjecia.filter(z => z.id !== id))
   }
-  function dodajZdjecie(nowe){
+  function dodajZdjecie(nowe) {
     const noweID = Math.max(...zdjecia.map(z => z.id)) + 1
-    setZdjecia([...zdjecia,{...nowe,id:noweID,favorite:false}])
+    setZdjecia([...zdjecia, { ...nowe, id: noweID, favorite: false }])
   }
-   return (
+  return (
     <>
-    <Navbar></Navbar>
-    <Naglowek/>
-    <main className='container'>
-      <CategoryBar aktywna = {aktywnaKategoria} onWybierz={setAktywnaKategoria}/>
-      {widoczne.length === 0 &&(
-        <div className="alert alert-warning">
-          Nie znaleziono zdjęc w tej kategorii.
-        </div>
-      )}
-      <Gallery zdjecia = {widoczne} onUsun = {usunZdjecie}/>
-    </main>
-    <Footer/>
-    <AddPhotoModal onDodaj={dodajZdjecie}/>
-    <FiltersOffcanvas aktywna={aktywnaKategoria} onWybierz={setAktywnaKategoria}/>
+      <Navbar></Navbar>
+      <Naglowek />
+      <main className='container'>
+        <CategoryBar aktywna={aktywnaKategoria} onWybierz={setAktywnaKategoria} />
+        <p className="text-body-secondary">
+          Wyświetlono {widoczne.length} z {zdjecia.length} zdjęć
+        </p>
+        {widoczne.length === 0 && (
+          <div className="alert alert-warning">
+            Nie znaleziono zdjęc w tej kategorii.
+          </div>
+        )}
+        <Gallery zdjecia={widoczne} onUsun={usunZdjecie} />
+      </main>
+      <Footer />
+      <AddPhotoModal onDodaj={dodajZdjecie} />
+      <FiltersOffcanvas aktywna={aktywnaKategoria} onWybierz={setAktywnaKategoria} />
     </>
   )
 }
