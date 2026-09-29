@@ -18,7 +18,11 @@ function App() {
   const widoczne = aktywnaKategoria === 'wszystkie' ? zdjecia : zdjecia.filter(z => z.category === aktywnaKategoria)
   function usunZdjecie(id){
     setZdjecia(zdjecia.filter(z => z.id !== id))
-  } 
+  }
+  function dodajZdjecie(nowe){
+    const noweID = Math.max(...zdjecia.map(z => z.id)) + 1
+    setZdjecia([...zdjecia,{...nowe,id:noweID,favorite:false}])
+  }
    return (
     <>
     <Navbar></Navbar>
@@ -33,7 +37,7 @@ function App() {
       <Gallery zdjecia = {widoczne} onUsun = {usunZdjecie}/>
     </main>
     <Footer/>
-    <AddPhotoModal/>
+    <AddPhotoModal onDodaj={dodajZdjecie}/>
     <FiltersOffcanvas aktywna={aktywnaKategoria} onWybierz={setAktywnaKategoria}/>
     </>
   )
