@@ -10,7 +10,8 @@ function App() {
    const imieNazwiskoRef = useRef(null)
    const numerKursuRef = useRef(null)
    const [szukaj,setSzukaj] = useState('')
-   const widoczne = kursy.map((kurs,index) => ({kurs,numer: index + 1})).filter(({kurs}) =>  kurs.toLowerCase().includes(szukaj.toLowerCase()))
+   const [rosnaco,setRosnaco] = useState(true)
+   const widoczne = kursy.map((kurs,index) => ({kurs,numer: index + 1})).filter(({kurs}) =>  kurs.toLowerCase().includes(szukaj.toLowerCase())).sort((a,b) => rosnaco ? a.kurs.localeCompare(b.kurs) : b.kurs.localeCompare(a.kurs))
    function handleSubmit(e){
     e.preventDefault()
     const imieNazwisko = imieNazwiskoRef.current.value
@@ -29,6 +30,7 @@ function App() {
       <h1 className="h3 mb-4">Zapisy na kursy</h1>
       <h2 className="h5">Liczba kursów: {kursy.length}</h2>
       <input type='text' className='form-control mb-2' placeholder='Szukaj kursu..' value={szukaj} onChange={e => setSzukaj(e.target.value)}/>
+      <button type='button' className='btn btn-outline-secondary text-nowrap' onClick={() => setRosnaco(!rosnaco)}>Sortuj {rosnaco ? 'Z->A' : 'A->Z'} </button>
       <ol>
         {widoczne.map(({kurs,numer}) =>(
           <li key={numer} value={numer}>{kurs}</li>
