@@ -9,6 +9,8 @@ const kursy  = [
 function App() {
    const imieNazwiskoRef = useRef(null)
    const numerKursuRef = useRef(null)
+   const [szukaj,setSzukaj] = useState('')
+   const widoczne = kursy.map((kurs,index) => ({kurs,numer: index + 1})).filter(({kurs}) =>  kurs.toLowerCase().includes(szukaj.toLowerCase()))
    function handleSubmit(e){
     e.preventDefault()
     const imieNazwisko = imieNazwiskoRef.current.value
@@ -26,9 +28,10 @@ function App() {
     <div className="container py-4" style={{maxWidth : 600}}>
       <h1 className="h3 mb-4">Zapisy na kursy</h1>
       <h2 className="h5">Liczba kursów: {kursy.length}</h2>
+      <input type='text' className='form-control mb-2' placeholder='Szukaj kursu..' value={szukaj} onChange={e => setSzukaj(e.target.value)}/>
       <ol>
-        {kursy.map((kurs,index) =>(
-          <li key={index}>{kurs}</li>
+        {widoczne.map(({kurs,numer}) =>(
+          <li key={numer} value={numer}>{kurs}</li>
         ))}
       </ol>
       <form onSubmit={handleSubmit}>
