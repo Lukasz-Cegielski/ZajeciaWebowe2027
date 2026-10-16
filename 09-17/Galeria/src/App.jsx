@@ -11,6 +11,7 @@ import Gallery from './components/Gallery'
 import Footer from './components/Footer'
 import AddPhotoModal from './components/AddPhotoModal'
 import FiltersOffcanvas from './components/FiltersOffCanvas'
+import ZdjecieDnia from './components/ZdjecieDnia'
 //import photos from './data/photos.json'
 
 function App() {
@@ -84,6 +85,7 @@ function App() {
       <Footer />
       <AddPhotoModal onDodaj={dodajZdjecie} />
       <FiltersOffcanvas aktywna={aktywnaKategoria} onWybierz={setAktywnaKategoria} />
+      <ZdjecieDnia/>
     </>
   )
 }
