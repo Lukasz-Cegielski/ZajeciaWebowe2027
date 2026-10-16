@@ -16,9 +16,11 @@ export default function ZdjecieDnia(){
                 if(!resp.ok) throw new Error(`Błąd serwera ${resp.status}`)
                 const dane = await resp.json()
                 setZdjecie(dane)
+                setError(null)
             }
             catch(err){
                 setError(err.message)
+                setZdjecie(null)
             }
             finally{
                 setIsLoading(false)
@@ -29,6 +31,7 @@ export default function ZdjecieDnia(){
     return(
         <div className="container mt-5 mb-5">
             <h2>Zdjęcie dnia</h2>
+            {error && <div className="alert alert-danger"> Błąd: {error}</div>}
             {zdjecie &&(
                 <>
                 <img src={`https://picsum.photos/id/${id}/400/250`} alt={zdjecie.author} className="img-fluid rounded" />
