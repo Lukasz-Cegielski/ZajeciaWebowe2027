@@ -1,0 +1,25 @@
+let zdjecia = null
+export async function pobierzZdjecia() {
+    if(zdjecia) return zdjecia
+    const resp = await fetch('/photos.json')
+    if(!resp.ok) throw new Error('Bład serwera '+resp.status)
+    zdjecia = await resp.json()
+    return zdjecia
+}
+export async function pobierzZdjecie(id) {
+    const lista = await pobierzZdjecia()
+    return lista.find(z => z.id === Number(id)) ?? null
+}
+export function usunZdjecie(id){
+    zdjecia = zdjecia.filter(z => z.id !== id)
+    return zdjecia
+}
+export function przelaczUlubione(id){
+    zdjecia = zdjecia.map(z => (z.id === id ? {...z,favorite:!z.favorite} : z))
+    return zdjecia
+}
+export function dodajZdjecie(nowe){
+    const noweId = Math.max(...zdjecia.map(z => z.id)) + 1
+    zdjecia = [...zdjecia,{...nowe,id:noweId,favorite:false}] 
+    return zdjecia
+}
