@@ -3,7 +3,7 @@ import { pobierzZdjecia } from "../services/zdjecia";
 
 
 export function useZdjecia(){
-    cosnt [zdjecia,setZdjecia] = useState([])
+    const [zdjecia,setZdjecia] = useState([])
     const [isLoading,setIsLoading] = useState(true)
     const [error,setError] = useState(null)
 
